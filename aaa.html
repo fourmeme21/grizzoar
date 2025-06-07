@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GRIZZOAR - Mythical Eagle Meme Coin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --gold: #FFD700; --purple: #4B0082; --lightning: #00FFFF; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle, #000000 0%, #1a0033 100%);
+      color: white;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .lightning {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/J5q7XyW.png') repeat;
+      opacity: 0.1;
+      z-index: -1;
+      animation: lightning 5s linear infinite;
+    }
+    @keyframes lightning {
+      0% { opacity: 0.1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 0.1; }
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+    }
+    .logo-container {
+      position: relative;
+      margin: 0 auto;
+      width: 200px;
+      height: 200px;
+    }
+    .logo {
+      width: 100%;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px var(--gold));
+    }
+    .logo-glow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+      opacity: 0.5;
+      border-radius: 50%;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.5; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(0.95); opacity: 0.5; }
+    }
+    h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3.5rem;
+      margin: 1rem 0;
+      background: linear-gradient(to right, var(--gold), var(--lightning));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255,215,0,0.3);
+    }
+    .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 5px var(--lightning);
+    }
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .card {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--purple);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 20px rgba(75, 0, 130, 0.5);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+    }
+    .btn {
+      background: linear-gradient(to right, var(--purple), #8A2BE2);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+    }
+    .btn-gold {
+      background: linear-gradient(to right, var(--gold), #FFA500);
+      color: #000;
+    }
+    .contract-address {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 10px;
+      font-family: monospace;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 1px solid var(--gold);
+    }
+    .contract-address:hover {
+      background: rgba(255, 215, 0, 0.2);
+      transform: scale(1.05);
+    }
+    .social-links {
+      margin: 2rem 0;
+    }
+    .social-links a {
+      color: var(--gold);
+      font-size: 2rem;
+      margin: 0 10px;
+      transition: all 0.3s;
+    }
+    .social-links a:hover {
+      color: var(--lightning);
+      transform: scale(1.2);
+    }
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      .logo-container {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lightning"></div>
+  <div id="particles-js" class="particles"></div>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-glow"></div>
+      <img src="https://i.imgur.com/mhVwMBw.png" alt="Grizzoar" class="logo" />
+    </div>
+    <h1>GRIZZOAR</h1>
+    <p class="tagline">The Mythical Eagle of Crypto</p>
+
+    <button class="btn btn-gold" id="buyButton">BUY NOW</button>
+    <button class="btn" id="chartButton">VIEW CHART</button>
+  </header>
+
+  <div class="main-content">
+    <div class="card">
+      <h2>ABOUT GRIZZOAR</h2>
+      <p>Grizzoar is not just a meme coin - it's a movement. Our mythical eagle soars above the crypto landscape, bringing power and prosperity to its holders.</p>
+    </div>
+
+    <div class="card">
+      <h2>TOKENOMICS</h2>
+      <ul>
+        <li>Total Supply: 1,000,000,000 GRIZZ</li>
+        <li>5% Marketing</li>
+        <li>5% Liquidity</li>
+        <li>3% Holders Rewards</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>CONTRACT ADDRESS</h2>
+      <div class="contract-address" id="contractAddress">0x74e39f9c0108d3c6496dd1a12b308c49d1634444</div>
+      <small>(Click to copy)</small>
+    </div>
+
+    <div class="social-links">
+      <a href="#" id="telegramLink">💬</a>
+      <a href="#" id="twitterLink">🐦</a>
+      <a href="#" id="dextoolsLink">📊</a>
+      <a href="#" id="websiteLink">🌐</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // 🔥 DEĞİŞTİRECEĞİNİZ YERLER (SADECE BURASI)
+    const contractAddress = "0x74e39f9c0108d3c6496dd1a12b308c49d1634444"; // Güncel kontrat adresi
+    const socialLinks = {
+      telegram: "#",   // Telegram linkiniz
+      twitter: "#",    // Twitter linkiniz
+      dextools: "#",   // Dextools linkiniz
+      website: "#"     // Website linkiniz
+    };
+    // 🔥 DEĞİŞTİRECEĞİNİZ YERLER SONU
+
+    // Butonları seç
+    const buyButton = document.getElementById("buyButton");
+    const chartButton = document.getElementById("chartButton");
+    const contractAddressDiv = document.getElementById("contractAddress");
+
+    // Social linkleri ata
+    document.getElementById("telegramLink").href = socialLinks.telegram;
+    document.getElementById("twitterLink").href = socialLinks.twitter;
+    document.getElementById("dextoolsLink").href = socialLinks.dextools;
+    document.getElementById("websiteLink").href = socialLinks.website;
+
+    // BUY NOW butonu linki güncelle
+    buyButton.addEventListener("click", () => {
+      window.open("https://four.meme/token/" + contractAddress, "_blank");
+    });
+
+    // VIEW CHART butonu linki güncelle
+    chartButton.addEventListener("click", () => {
+      window.open("https://www.dextools.io/app/en/ether/pair-explorer/" + contractAddress, "_blank");
+    });
+
+    // Contract adresi tıklayınca kopyalama
+    contractAddressDiv.addEventListener("click", () => {
+      navigator.clipboard.writeText(contractAddress).then(() => {
+        alert("Contract address copied to clipboard!");
+      });
+    });
+
+    // Particles.js ayarları
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: "#FFD700" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#FFD700", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 3, direction: "none", random: false, straight: false, bounce: false }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 1 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
